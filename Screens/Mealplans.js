@@ -16,7 +16,7 @@ var snacks=[]
     console.log("Getting")
     axios({ 
       method:'GET',
-      url:"http://192.168.1.6:5000/diets/getdiets",
+      url:"http://192.168.0.110:5000/diets/getdiets",
       })
       .then(response =>{
         console.log(response.data)

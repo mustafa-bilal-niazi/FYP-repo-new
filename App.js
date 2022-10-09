@@ -44,6 +44,7 @@ export default function App() {
         headerLeft: null
       },
       headerTintColor: 'black',
+      
       headerTitleStyle: {
         fontWeight: 'bold',
       },
@@ -103,16 +104,28 @@ export default function App() {
       }}/>
 
       <Stack.Screen name="Exercises" component={Exercises} options={{
-        headerShown: false,
-        navigationOptions:  {
-          headerLeft: null
+        title: 'Exercie Plans',
+        
+        headerStyle: {
+          backgroundColor: 'white',
+        },
+        headerTitleAlign: 'center',
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontWeight: 'bold',
         },
       
       }}/>
       <Stack.Screen name="Meals" component={Meals} options={{
-        headerShown: false,
-        navigationOptions:  {
-          headerLeft: null
+        title: 'Meal Plans',
+        
+        headerStyle: {
+          backgroundColor: 'white',
+        },
+        headerTitleAlign: 'center',
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontWeight: 'bold',
         },
       
       }}/>
@@ -131,9 +144,15 @@ export default function App() {
       
       }}/>
       <Stack.Screen name="Payment" component={Payment} options={{
-        headerShown: false,
-        navigationOptions:  {
-          headerLeft: null
+        title: 'Payments',
+        
+        headerStyle: {
+          backgroundColor: 'lightsteelblue',
+        },
+        headerTitleAlign: 'center',
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontWeight: 'bold',
         },
       
       }}/>

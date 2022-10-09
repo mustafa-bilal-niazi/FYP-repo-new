@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 36,
       color: 'seagreen',
+      fontStyle: 'italic'
       
     },
     style1: {

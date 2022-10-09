@@ -15,11 +15,12 @@ const workoutplans = ({navigation}) => {
   var shoulder=[]
   var tricep=[]
   var bicep=[]
+
   const readData = ( ) =>{
     console.log("Getting")
     axios({ 
       method:'GET', 
-      url:"http://192.168.1.6:5000/workouts/getworkouts",
+      url:"http://192.168.0.110:5000/workouts/getworkouts",
       })
       .then(response =>{
         // console.log(response.data)
@@ -29,7 +30,8 @@ const workoutplans = ({navigation}) => {
         shoulder = response.data[3]
         tricep = response.data[4]
         bicep = response.data[5]
-        console.log(bicep)
+
+        console.log(all)
       })
       .catch(e =>{
         console.log(e)
@@ -39,14 +41,19 @@ const workoutplans = ({navigation}) => {
     // Update the document title using the browser API
     readData()
   });
-  
-
-
 
   return (
         
     <View style={styles.container}>
-      
+      <TouchableOpacity style={[styles.button2,styles.buttonOutline]}>
+          <Text style={styles.buttonText}>
+              ALL EXERCISES
+          </Text>
+        </TouchableOpacity>
+      <View style={{backgroundColor: 'forestgreen',borderRadius: 50,width: 490,jflex: 1,height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',}}>
+        <Text style={{fontSize:32,color: 'black',fontWeight: 'bold'}}>UPPER BODY</Text></View>
         <TouchableOpacity onPress={()=>navigation.navigate('Exercises', { exercise: chest})} style={[styles.button2,styles.buttonOutline]}>
           <Text style={styles.buttonText}>
               Chest Plans
@@ -57,6 +64,15 @@ const workoutplans = ({navigation}) => {
               Back Plans
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('Exercises', { exercise: shoulder})} style={[styles.button2,styles.buttonOutline]}>
+          <Text style={styles.buttonText}>
+              Shoulder Plans
+          </Text>
+        </TouchableOpacity>
+        <View style={{backgroundColor: 'forestgreen',borderRadius: 50,width: 490,jflex: 1,height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',}}>
+        <Text style={{fontSize:32,color: 'black',fontWeight: 'bold'}}>ARMS</Text></View>
         <TouchableOpacity onPress={()=>navigation.navigate('Exercises', { exercise: bicep})} style={[styles.button2,styles.buttonOutline]}>
           <Text style={styles.buttonText}>
               Bicep Plans
@@ -67,16 +83,16 @@ const workoutplans = ({navigation}) => {
               Tricep Plans
           </Text>
         </TouchableOpacity>
+        <View style={{backgroundColor: 'forestgreen',borderRadius: 50,width: 490,jflex: 1,height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',}}>
+        <Text style={{fontSize:32,color: 'black',fontWeight: 'bold'}}>LOWER BODY</Text></View>
         <TouchableOpacity onPress={()=>navigation.navigate('Exercises', { exercise:  legs})} style={[styles.button2,styles.buttonOutline]}>
           <Text style={styles.buttonText}>
               Legs Plans
           </Text>
         </TouchableOpacity>          
-        <TouchableOpacity onPress={()=>navigation.navigate('Exercises', { exercise: shoulder})} style={[styles.button2,styles.buttonOutline]}>
-          <Text style={styles.buttonText}>
-              Shoulder Plans
-          </Text>
-        </TouchableOpacity>
+        
       
     </View>
 )

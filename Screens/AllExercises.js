@@ -1,78 +1,35 @@
 import React, {useState,useEffect} from 'react';
-import { TouchableOpacity,ScrollView,Pressable,SafeAreaView, KeyboardAvoidingView,StyleSheet, Text, TextInput, View,FlatList } from 'react-native';
+import { TouchableOpacity,Pressable,SafeAreaView, KeyboardAvoidingView,StyleSheet, Text, TextInput, View,FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import {  auth } from '../firebase';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import axios from 'axios';
 
-const Meals = ({navigation,route}) => {
+const Exercises = ({navigation,route}) => {
     //const navigation = useNavigation()
     var list = []
-    list = route.params.meal
+    list = route.params.exercise
     console.log(list)
 
     return (
-      <View style={styles.container}>
+        <View style={styles.container}>
             <FlatList
               data={list}
               renderItem={({item}) =>  (
-              <View>
                 <View style={styles.container2}>
-                  <Text>Diet type: {item.type}</Text>
+                  <Text>{item.workoutName}</Text>
+                  <Text>{item.exerciseName}</Text>
+                  <Text>{item.exerciseName2}</Text>
+                  <Text>{item.exerciseName3}</Text>
                 </View>
-                <View style={styles.containernew}>
-                  <View style={{marginTop: 10}}>
-                    <Text>Total calories: </Text>
-                    <Text>{item.calories}</Text>
-                  <View style={{marginTop: 10}}>
-                    <Text>Intake type: {item.dietName}</Text>
-                  </View>
-                  <View style={{marginTop: 10}}>
-                    <Text>Food items:</Text>
-                  </View>
-                    <Text>ITEM 1: {item.foodName}</Text>
-                    <Text>ITEM 2: {item.foodName2}</Text>
-                    <Text>ITEM 3: {item.foodName3}</Text>
-                </View>
-                  
-                  <View style={[{flexDirection: 'row'},{marginTop: 10}]}>
-                    <TouchableOpacity
-                      
-                      style={[styles.button2,styles.buttonOutline]}>
-                      <Text style={styles.buttonText}>
-                          Fav
-                      </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        
-                        style={[styles.button2,styles.buttonOutline]}>
-                        <Text style={styles.buttonText}>
-                            Review
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        
-                        style={[styles.button2,styles.buttonOutline]}>
-                        <Text style={styles.buttonText}>
-                            Rating
-                        </Text>
-                    </TouchableOpacity>
-                  </View>
-
-                  
-                </View>
-                
-              </View>
               )}
             />
-            
         </View>
-
     )
 }
 
-export default Meals
+export default Exercises
 
 const styles = StyleSheet.create({
   image:{
@@ -87,19 +44,18 @@ const styles = StyleSheet.create({
   },
     container: {
       flex: 1,
-      backgroundColor: 'seagreen',
+      backgroundColor: 'lightgreen',
       alignItems: 'center',
       justifyContent: 'center',
-      
     },
     container2: {
-      borderBottomWidth: 4,
-      backgroundColor: 'white',
-      width: 300,
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: 30,
-      fontWeight: 'bold',  
+      borderBottomWidth: 2,
+      paddingTop: 20,
+      backgroundColor: 'palegoldenrod',
+      width: '80%',
+      alignSelf: 'center',
+      marginTop: 25,
+      borderRadius: 20
     },
     centeredView: {
       flex: 1,
@@ -174,8 +130,7 @@ const styles = StyleSheet.create({
   
       button2: {
         backgroundColor: 'seagreen',
-        width: 100,
-        height: 70,
+        width: 200,
         padding: 15,
         borderRadius: 50,
         alignItems: 'center',
@@ -230,8 +185,7 @@ const styles = StyleSheet.create({
      },
      containernew: {
       flex: 1,
-      fontSize: 33,
-      backgroundColor: 'lightgreen',
+      backgroundColor: 'khaki',
       justifyContent: 'center',
     },
   });
